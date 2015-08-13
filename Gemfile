@@ -46,7 +46,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3.5'
 #gem 'sass-rails', '>= 3.2'
 
-#
+#upload images
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.5.0'
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -57,3 +61,4 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
