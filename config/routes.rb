@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   #get 'recipes/:id' => 'recipes#show', as: 'recipe'
   #delete '/recipes/:id', to: 'recipes#destroy'
 
-  resources :recipes
+  resources :recipes do
+    #синтаксис особо не понятен пока, но это просто post запрос в формате контроллера
+    member do
+      post 'like'
+    end
+  end
 
 end

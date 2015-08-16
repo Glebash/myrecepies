@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    #@recipes = Recipe.all.sort_by{|likes| likes.thumbs_up_total}.reverse
+    @recipes = Recipe.reorder("total_likes DESC").paginate(page: params[:page], per_page: 2) #.reoder("total_likes DESC")
   end
   def show
     @recipe = Recipe.find(params[:id])
@@ -33,6 +34,21 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
+  end
+  def like
+    @recipe = Recipe.find(params[:id])
+    #пока прописано строго т к не аутентификации , параметр like передаем отдельно
+    like= Like.create(like: params[:like], chef: Chef.first, recipe: @recipe)
+    if like.valid?
+      flash[:success] = "Your trumb is counted"
+      #возврат к первичной странице, откуда был вызов
+      redirect_to :back
+    else
+      flash[:danger] = "Only one time"
+      #возврат к первичной странице, откуда был вызов
+      redirect_to :back
+    end
+
   end
 
   private

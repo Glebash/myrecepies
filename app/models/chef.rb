@@ -1,6 +1,7 @@
 class Chef < ActiveRecord::Base
 
   has_many :recipes
+  has_many :likes
 
   #перед сохранением приведем все емэйлы к маленьким буквам
   before_save {self.email = email.downcase}

@@ -48,7 +48,11 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 #upload images
 gem 'carrierwave', '0.10.0'
-gem 'mini_magick', '3.5.0'
+gem 'mini_magick', '4.2.10'
+
+#pagination (нумерация страниц)
+gem 'will_paginate','3.0.7'
+gem 'bootstrap-will_paginate','0.0.10'
 
 
 group :development, :test do
