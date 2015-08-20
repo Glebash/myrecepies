@@ -3,24 +3,25 @@
   <h2>
     This is the gome page for the Professional Ruby on Rails Developer Course on Udemy
   </h2>
-  <%= link_to "Sign up now!","", class:"btn btn-lg btn-success" %>
+  <%= link_to "Sign up now!",register_path, class:"btn btn-lg btn-success" %>
 </div>
 
 <div class="row">
+  <div class="col-lg-4">
+    <h3 class="midrow">View Recepies as Guest User</h3>
+    <h2 class="left">Browse and view recipes as a guest and sigh up later</h2>
+    <p><%= link_to "Browse Recipe Listings",recipes_path,class:"btn btn-warning btn-smaa"%></p>
+  </div>
     <div class="col-lg-4">
-      <h3 class="midrow">View Recepies as Guest User</h3>
-      <h2 class="left">Browse and view recipes as a guest and sigh up later</h2>
+      <h3 class="midrow">Sign into your account</h3>
+      <h2 class="left">Add\update your recipe/create reviews/like-dislike recipes</h2>
       <p><%= link_to "Browse Recipe Listings",recipes_path,class:"btn btn-warning btn-smaa"%></p>
     </div>
+
   <div class="col-lg-4">
     <h3 class="midrow">View Recepies as Guest User</h3>
     <h2 class="left">Browse and view recipes as a guest and sigh up later</h2>
-    <p><%= link_to "Browse Recipe Listings","",class:"btn btn-warning btn-smaa"%></p>
-  </div>
-  <div class="col-lg-4">
-    <h3 class="midrow">View Recepies as Guest User</h3>
-    <h2 class="left">Browse and view recipes as a guest and sigh up later</h2>
-    <p><%= link_to "Browse Recipe Listings","",class:"btn btn-warning btn-smaa"%></p>
+    <p><%= link_to "Log into your account",login_path,class:"btn btn-warning btn-smaa"%></p>
   </div>
 </div>
 

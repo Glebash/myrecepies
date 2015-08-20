@@ -12,10 +12,12 @@ class Recipe < ActiveRecord::Base
   before_save :default_vote_count
 
   def thumbs_up_total
-    self.likes.where(like: true).size
+    #self.likes.where(like: true).size
+    self.total_likes
   end
   def thumbs_down_total
-    self.likes.where(like: false).size
+    self.total_dislikes
+   # self.likes.where(like: false).size
   end
   def default_vote_count
     self.total_likes ||=0

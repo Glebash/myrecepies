@@ -23,3 +23,29 @@ email: string
 -email must be present
 -email must be unique ( for login later)
 -email must be valid
+
+---------
+Chefs:
+What we have already:
+-chef model and validation
+-chefs table with columns chefname and email
+
+What we need to do:
+-Add passwords to chefs table for log in
+-use email like log in
+-Ability to register new chefs
+-ability to display chefs profile
+-list chefs using the app
+-log in and log out for chefs
+-restricr action like create recipe, edit recipe and like to logged in chefs only
+-rescricting edit of recipe by chefs who created the recipe
+
+--------
+Autentification update:
+1) Show recipe page -> Ability to edit\ update only own recipe
+2) Navigation partial -> Toggle Menu, resctrict new
+3) Restrict thumbs up thumbs donw action to logged_in users only
+4) Recipe - update to current_user
+5) Like - Update to current_user
+6) Before_action :require_user, except: [:show, :index]
+7) before_action :require_some_user for chefs, only :[:edit, :update]

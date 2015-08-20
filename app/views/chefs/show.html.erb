@@ -1,0 +1,40 @@
+<%= render "shared/page_title", title: "Chef: "+@chef.chefname  %>
+
+<div class="col-md-4 col-md-offset-4 center">
+  <%= gravatar_for @chef, size: 200 %>
+</div>
+
+<div class="row">
+  <div class="com-md-4 col-md-offset-4 center">
+    <h3><em>Recipes:</em></h3>
+        <%= will_paginate @recipes %>
+  </div>
+</div>
+
+    <% @recipes.each do |recipe| %>
+        <div class="row">
+          <div class="col-lg-6 well col-lg-offset-3">
+            <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+            <p><%= recipe.summary %></p>
+            <p>
+              <span class="quiet"><small><%= time_ago_in_words(recipe.updated_at) %></small></span>
+            </p>
+            <div class="pull-right">
+              <%= link_to like_recipe_path(recipe, like: true), method: :post do %> &nbsp <%= recipe.thumbs_up_total %>
+                  <i class="glyphicon glyphicon-thumbs-up" ></i>
+              <% end %> &nbsp&nbsp
+              <%= link_to like_recipe_path(recipe, like: false), method: :post do %> &nbsp <%= recipe.thumbs_down_total %>
+                  <i class="glyphicon glyphicon-thumbs-down" ></i>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <%= image_tag(recipe.picture.url, size: "250x150", class: "gravatar") if recipe.picture?  %>
+          </div>
+
+        </div>
+
+
+        <hr/>
+
+    <% end %>
